@@ -7,7 +7,7 @@ services:
 - PHP
 - Nginx (available locally at 8888, your API endpoints will accessible through here)
 
-See .env for working credentials for RabbitMQ, MySQL and MailHog.
+See .env for working credentials for MySQL and MailHog.
 
 A few notes:
 - By default, emails sent through Symfony Mailer will be sent to MailHog, regardless of recipient.
