@@ -20,5 +20,20 @@ services:
             - '../src/Entity/'
             - '../src/Kernel.php'
 
-    # add more service definitions when explicit configuration is needed
-    # please note that last definitions always *replace* previous ones
+    # Register DebrickedApiService
+    App\Service\DebrickedApiService:
+        arguments:
+            $client: '@http_client' # Inject the HTTP client service
+
+    # Register ProcessUploadedFilesHandler
+    App\MessageHandler\ProcessUploadedFilesHandler:
+        arguments:
+            $fileUploadRepository: '@App\Repository\FileUploadRepository'
+            $debrickedApiService: '@App\Service\DebrickedApiService'
+            $entityManager: '@doctrine.orm.entity_manager'
+            $ruleEngine: '@App\Service\RuleEngine'
+
+    # Register RuleEngine
+    App\Service\RuleEngine:
+        arguments:
+            $notifier: '@notifier'
