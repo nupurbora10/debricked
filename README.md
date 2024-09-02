@@ -2,7 +2,6 @@
 This a base for Debricked's backend home task. It provides a Symfony skeleton and a Docker environment with a few handy 
 services:
 
-- RabbitMQ
 - MySQL (available locally at 3307, between Docker services at 3306)
 - MailHog (UI available locally at 8025)
 - PHP
